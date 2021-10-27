@@ -230,6 +230,7 @@ function AddRecipeCard(obj){
     let name = obj.recipe.label;
     let time = obj.recipe.totalTime;
     let url = obj.recipe.url;
+    console.log(url);
 
     document.getElementById('recipeArea').innerHTML +=
     /*html*/
@@ -241,7 +242,7 @@ function AddRecipeCard(obj){
                 <h5 class="card-title flex-fill text-white">${name}</h5>
                 <p class="card-text">${time} mins to prepare</p>
                 <p class="card-text text-muted">${cal} Calories</p>
-                <a :href="${url}" class="card-link mt-auto">
+                <a href="${url}" class="card-link mt-auto">
                     <button class='btn btn-outline-info fs-5'>Get the Recipe!</button>
                 </a>
             </div>
