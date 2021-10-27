@@ -230,7 +230,6 @@ function AddRecipeCard(obj){
     let name = obj.recipe.label;
     let time = obj.recipe.totalTime;
     let url = obj.recipe.url;
-    console.log(url);
 
     document.getElementById('recipeArea').innerHTML +=
     /*html*/
