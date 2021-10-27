@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!doctype html>
+  <html lang="en">
+    <head>
+      <!-- Required meta tags -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+      <!-- Bootstrap CSS -->
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+  
+      <!-- Axios Library -->
+      <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+      
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap" rel="stylesheet">
+
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@700&display=swap" rel="stylesheet">
+
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+
+
+      <link rel="stylesheet" href="./styles/knowledge.css"> <!-- External CSS File -->
+
+      <script src="https://unpkg.com/vue@next"></script>
+
+    </head>
+  
+    <body id="page-top">
+      
+      <!--navbar-->
+      <div id="test"></div>
+      
+      <nav class="navbar navbar-expand-lg navbar-light pink-bg m-0 p-0">
+        <div class="container-fluid">
+            <a class="navbar-brand m-0 p-0" href="about.html">
+                <img src="./assets/logo.png" alt="" width="250">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link mx-1" href="donate.html">Donate</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mx-1" href="sharefood.html">Marketplace</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mx-1 active" href="knowledge.html">Knowledge</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mx-1" href="about.html">About Us</a>
+                    </li>
+                </ul>
+
+                <span class="flex-row flex-wrap ms-md-auto mb-2"></span>
+
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item px-1 logged-out">
+                        <a class="nav-link" href="login.html">
+                            <button type='button' class='btn btn-outline-dark fs-5 fw-bold'>Login</button>
+                        </a>
+                    </li>
+                    <li class="nav-item px-1 logged-in">
+                        <a class="nav-link" href="profile.html">
+                            <button type='button' class='btn btn-outline-dark fs-5 fw-bold'>My Profile</button>
+                        </a>
+                    </li>
+                    <li class="nav-item px-1 logged-in">
+                        <a class="nav-link">
+                            <button type='button' class='btn btn-outline-dark fs-5 fw-bold' id="logout">Log Out</button>
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+
+    <!--animation-->
+
+      <div id="app2">
+        <section class="header p-5 pink-bg">
+          <div class="container-fluid">
+            <div class="typing-container">
+              <span id="sentence">{{charCurrent}}</span>
+              <span class='input-cursor'></span>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div class="spacer layer1 flip"></div>
+
+      <div class="container px-5 my-5">
+        <div class="row gx-5 text-black">
+          <h2 class="pinkFont">Trivia</h2>
+          <p class="border-bottom pb-2 text-muted">Try out this fun food trivia</p>
+          <div class="py-5">
+            <div class="container px-5">
+              <div class="row gx-5 justify-content-center">
+                <div class="col-lg-10 col-xl-7">
+                  <div class="text-center">
+                    <div id="app3">
+                        <div v-if="!submitted && !giveUp">
+                            <div v-if="!launched">
+                              <h2 class="text-light mb-3">Test your food knowledge!</h2>
+                              <button @click="launched = true" class="btn btn-lg pink-bg justify-content-center text-center last-button">Launch Trivia</button>
+                            </div>
+
+                            <div v-else>
+                              <h2 class="text-light">{{question}}</h2>
+                              <div class='input-group mb-1'> <input v-model="userInput" type='text' class='form-control answerInput' placeholder='Enter your answer here!'></div><br>
+                              <button @click="submitted = true" type='button' class='btn btn-lg pink-bg text-center last-button me-2 my-2'>Submit</button>
+                              <button @click="giveUp = true" type='button' class='btn btn-lg pink-bg text-center last-button me-2 my-2'>Show Answer</button>
+                            </div>
+
+                        </div>
+    
+                        <div v-if="submitted">
+                          <div v-if="checkAns()">
+                            <h2 class="text-success">Well Done!</h2>
+                            <button @click="reset()" type='button' class='btn btn-lg pink-bg justify-content-center text-center last-button'>Try another question</button>
+                          </div>
+
+                          <div v-else>
+                            <h2 class="text-light">{{question}}</h2>
+                              <div class="text-danger mb-3">That's incorrect, try again</div>
+                              <div class='input-group mb-1'> <input v-model="userInput" type='text' class='form-control answerInput' placeholder='Enter your answer here!'></div><br>
+                              <button @click="submitted = true" type='button' class='btn btn-lg pink-bg text-center last-button me-2 my-2'>Submit</button>
+                              <button @click="incorrectShowAns()" type='button' class='btn btn-lg pink-bg text-center last-button me-2 my-2'>Show Answer</button>
+                            </div>
+                          </div>
+    
+                          <div v-if="giveUp && !submitted">
+                            <h2 class="text-light">{{question}}</h2>
+                            <p class="text-danger mb-3">{{ans}}</p>
+                            <button @click="reset()" type='button' class='btn btn-lg pink-bg text-center last-button'>Try another question</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>  
+          </div>
+
+  
+  
+          <!-- news cards -->
+          <div class="container px-5 my-5" id="cool">
+            <div class="row gx-5 text-black">
+              <h2 style="color: #f7caca;">News </h2>
+              <p class="border-bottom mb-5 pb-3 text-muted">Click on 'Continue Reading' to read more</p>
+            </div>
+
+            <div class="container px-0" style="margin-bottom: 20px;">
+              <div id="carouselExampleIndicators" class="carousel slide pink-outline" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+
+                <!-- Carousel Item Component -->
+                <div class="carousel-inner">
+                  <carou-item v-for="(acarou, idx) in carouData" :imageurl="acarou.image.url" :atitle="acarou.title" :adatepublished="acarou.dateP" :adescription="acarou.desc" :alink="acarou.url" :i="idx"></carou-item>
+                </div>
+
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- News Card Component -->
+            <div class="container mt-5">
+              <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 mb-2">
+                <my-cards v-for="aCard in newsData" :imageurl="aCard.image.url" :atitle="aCard.title" :adatepublished="aCard.dateP" :adescription="aCard.desc" :alink="aCard.url"></my-cards>
+            </div>
+          </div>
+
+        <!-- read more button-->
+        <div class="text-center">
+          <a role="button" class="btn btn-lg pink-bg justify-content-center text-center last-button" href="https://www.google.com/search?q=food+starvation+and+hunger&sxsrf=AOaemvIg-wyvCiumKN8YfGd3mrV5zqfjbQ:1633603591934&source=lnms&tbm=nws&sa=X&ved=2ahUKEwjEzbPOj7jzAhVa7HMBHbeSAwYQ_AUoAnoECAEQBA&biw=1280&bih=577&dpr=1.5" target="_blank">Click here to read more news</a>
+        </div>
+        </div>
+
+
+        <div class="spacer layer1"></div> <!--haikei-->
+
+        <!-- footer -->
+        <div style="background-color: #f7caca; margin-bottom: 0;">
+          <footer class="container">
+          <p class="float-end" style="margin-bottom: 0;"><a href="#page-top" class="text-dark">Back to Top</a></p>
+          <p class="text-dark pb-2" style="margin-bottom: 0;">© FoodShare</p>
+          </footer>
+        </div>
+     
+    
+    <!-- Authentication JS -->
+    <script type="module" src="scripts/auth.js"></script>
+    
+    <script src="./scripts/knowledge.js"></script> <!-- external js script -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>      
+    
+    </body>
+</html>

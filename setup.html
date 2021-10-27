@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setup Profile - FoodShare</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@700&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+
+    <!-- Setup CSS -->
+    <link rel="stylesheet" href="styles/setup.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <!-- Vue JS -->
+    <script src="https://unpkg.com/vue@next"></script>
+
+</head>
+<body id="body">
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light pink-bg m-0 p-0">
+        <div class="container-fluid">
+            <a class="navbar-brand m-0 p-0" href="#">
+                <img src="assets/logo.png" alt="" width="250">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link mx-1" href="donate.html">Donate</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mx-1" href="sharefood.html">Marketplace</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mx-1" href="knowledge.html">Knowledge</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mx-1" href="about.html">About Us</a>
+                    </li>
+                </ul>
+
+                <span class="flex-row flex-wrap ms-md-auto mb-2"></span>
+
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item px-1 logged-out">
+                        <a class="nav-link" href="login.html">
+                            <button type='button' class='btn btn-outline-dark fs-5'>Login</button>
+                        </a>
+                    </li>
+                    <li class="nav-item px-1 logged-in">
+                        <a class="nav-link" href="profile.html">
+                            <button type='button' class='btn btn-outline-dark fs-5'>My Profile</button>
+                        </a>
+                    </li>
+                    <li class="nav-item px-1 logged-in">
+                        <a class="nav-link">
+                            <button type='button' class='btn btn-outline-dark fs-5' id="logout">Log Out</button>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Setup App -->
+    <div id="setup-app">
+        <!-- Typing Title -->
+        <section class="header p-5 pink-bg">
+            <div class="container-fluid">
+                <typing-title></typing-title>
+            </div>
+        </section>
+        <div class="spacer layer1 flip"></div>
+
+        <!-- Register Card -->
+        <div class="container py-5">
+            <div class="row justify-content-center" style="background: #202731;">
+                <div class="col-lg-9">
+                    <setup-form></setup-form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class='spacer layer1'></div>
+    <p class="m-0 text-center small pink-bg">Copyright &copy; FoodShare 2021</p>
+
+    <!-- Setup JS -->
+    <script type="module" src="scripts/setup.js"></script>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - FoodShare</title>
+
+    <!-- Google Font CSS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+
+    <!-- Profile CSS -->
+    <link rel="stylesheet" href="styles/profile.css">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+        
+    <!-- Vue JS -->
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body id="page-top">
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light pink-bg m-0 p-0">
+        <div class="container-fluid">
+            <a class="navbar-brand m-0 p-0" href="about.html">
+                <img src="assets/logo.png" alt="" width="250">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link mx-1 active" href="donate.html">Donate</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mx-1" href="sharefood.html">Marketplace</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mx-1" href="knowledge.html">Knowledge</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mx-1" href="about.html">About Us</a>
+                    </li>
+                </ul>
+
+                <span class="flex-row flex-wrap ms-md-auto mb-2"></span>
+
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item px-1 logged-out">
+                        <a class="nav-link" href="login.html">
+                            <button type='button' class='btn btn-outline-dark fs-5 fw-bold'>Login</button>
+                        </a>
+                    </li>
+                    <li class="nav-item px-1 logged-in">
+                        <a class="nav-link" href="profile.html">
+                            <button type='button' class='btn btn-outline-dark fs-5 fw-bold'>My Profile</button>
+                        </a>
+                    </li>
+                    <li class="nav-item px-1 logged-in">
+                        <a class="nav-link">
+                            <button type='button' class='btn btn-outline-dark fs-5 fw-bold' id="logout">Log Out</button>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Profile App -->
+    <div id="profile-app">
+        <!-- Typing Title -->
+        <section class="header p-5 pink-bg">
+            <div class="container-fluid">
+                <typing-title></typing-title>
+            </div>
+        </section>
+        
+        <div class="spacer layer1 flip"></div>
+
+        <!-- Profile Info -->
+        <div class="container-fluid">
+            <div class="row">
+                <div class="profile m-0 p-0">
+                    <div class="profile-header">   
+                        <!-- BEGIN profile-header-content -->
+                        <div class="profile-header-content" :style="[showHeader ? {'display':'block'} : {'display':'none'}]">
+
+                            <!-- BEGIN profile-header-info -->
+                            <div class="profile-header-info text-center">
+                                <h1 v-html="username"></h1>
+                                <br><br><br>
+                                <h5>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="33" height="33" fill="currentColor" class="bi bi-telegram" viewBox="0 0 16 16">
+                                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.287 5.906c-.778.324-2.334.994-4.666 2.01-.378.15-.577.298-.595.442-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294.26.006.549-.1.868-.32 2.179-1.471 3.304-2.214 3.374-2.23.05-.012.12-.026.166.016.047.041.042.12.037.141-.03.129-1.227 1.241-1.846 1.817-.193.18-.33.307-.358.336a8.154 8.154 0 0 1-.188.186c-.38.366-.664.64.015 1.088.327.216.589.393.85.571.284.194.568.387.936.629.093.06.183.125.27.187.331.236.63.448.997.414.214-.02.435-.22.547-.82.265-1.417.786-4.486.906-5.751a1.426 1.426 0 0 0-.013-.315.337.337 0 0 0-.114-.217.526.526 0 0 0-.31-.093c-.3.005-.763.166-2.984 1.09z"/>
+                                    </svg>
+                                    <span class="ps-3" v-html="telehandle"></span>
+                                </h5>
+                            </div>
+                            <!-- END profile-header-info -->
+                        </div>
+                        <!-- END profile-header-content -->
+                           
+                        <!-- BEGIN profile-header-tab -->
+                        <ul class="profile-header-tab nav nav-tabs justify-content-center">
+                            <li class="nav-item">
+                                <a data-toggle="tab" class="nav-link" href="#profile-about">About Me</a>
+                            </li>
+                            <li class="nav-item">
+                                <a data-toggle="tab" class="nav-link active" href="#profile-post">My Listings</a>
+                            </li>
+                        </ul>
+                        <!-- END profile-header-tab -->
+                    </div>
+                </div>
+                <!-- end profile -->
+
+                <!-- begin profile-content -->
+                <div class="profile-content m-0 p-0">
+                    <!-- begin tab-content -->
+                    <div class="tab-content">
+                        <!-- begin #profile-about tab -->
+                        <div role="tabpanel" class="tab-pane fade text-center" id="profile-about">
+                            <div class="px-5 pt-4 mt-2 pb-4">
+                                <h2 class="text-decoration-underline">Birthday:</h2>
+                                <h3 class="pt-4">{{birthday}}</h3>
+                            </div>
+                            <div class="px-5 pt-4 mt-2 pb-4">
+                                <h2 class="text-decoration-underline">Biography</h2>
+                                <h3 class="pt-4">{{bio}}</h3>
+                            </div>
+                        </div>
+                        <!-- end #profile-about tab -->
+
+                        <!-- begin #profile-post tab -->
+                        <div role="tabpanel" class="tab-pane fade in active show" id="profile-post">
+                            
+                            <!-- begin timeline -->
+                            <ul class="timeline ps-5 ms-3" id="timeline-ul">
+                                <user-listing v-for="item in listings" :item="item" :username="username"></user-listing>
+                            </ul>
+                            <!-- end timeline -->
+                            <div class="flex-column text-center">
+                                <a href="./post.html">
+                                    <button class="btn btn-outline-warning fs-5 m-5">List Trade</button>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- end #profile-post tab -->
+                    </div>
+                    <!-- end tab-content -->
+                </div>
+                <!-- end profile-content -->
+            </div>
+            <!-- end of row -->
+        </div>
+        <!-- end of container -->
+    </div>
+
+    <!-- Footer-->
+    <div class="spacer layer2"></div>
+
+    <!-- footer -->
+    <div style="background-color: #f7caca; margin-bottom: 0;">
+        <footer class="container">
+        <p class="float-end" style="margin-bottom: 0;"><a href="#page-top" class="text-dark">Back to Top</a></p>
+        <p class="text-dark pb-2" style="margin-bottom: 0;">© FoodShare</p>
+        </footer>
+    </div>
+
+    <!-- Profile JS -->
+    <script type="module" src="scripts/profile.js"></script>
+
+    <!-- Bootstrap core JS-->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+</body>
+
+</html>

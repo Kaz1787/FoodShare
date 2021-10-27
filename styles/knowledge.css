@@ -1,0 +1,140 @@
+html {
+  background-color: #202731;
+}
+
+body {
+  background-color: #202731;
+  font-family: 'Inter', sans-serif;
+} 
+
+#sentence {
+  font-family: 'PT Sans', sans-serif;
+  font-size: 48px;
+  font-weight: bold;
+}
+
+.nav-link {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.spacer {
+    aspect-ratio: 960/300;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+section {
+  position: relative;
+  /* min-height: 300px; */
+}
+
+.typing-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.input-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 42px;
+  background-color: black;
+  margin-left: 8px;
+}
+
+.layer1 {
+  background-image: url('../assets/layer1.svg');
+  height: 150px;
+}
+
+.layer2 {
+  background-image: url('../assets/layer2.svg');
+}
+
+.pink-outline {
+  border: 1px solid #f7caca;
+  background-color: #202731;
+  border-radius: 5px;
+  color: white;
+}
+
+
+.pink-outline:hover {
+  border: 2px solid #6979fa;
+  background-color: #202731;
+  border-radius: 5px;
+  color: white;
+}
+
+.flip {
+  transform: rotate(180deg);
+}
+
+.other-link:hover {
+  color: #6979fa;
+}
+
+.pink-bg {
+  background-color: #f7caca;
+}
+
+.last-button:hover {
+  background-color: #6979fa;
+}
+
+.linkCarou {
+  background-color: #f7caca;
+}
+.linkCarou:hover {
+  background-color: #6979fa;
+}
+
+.pinkFont {
+  color: #f7caca;
+}
+
+.linkCard:hover {
+  color: #6979fa;
+}
+
+@keyframes blink {
+    0% {opacity: 1;}
+    40% {opacity: 1;}
+    60% {opacity: 0;}
+    100% {opacity: 0;}
+}
+
+.input-cursor { 
+    animation: blink .6s linear infinite alternate;
+}
+
+.answerInput {
+  border: 2px #f7caca solid
+}
+
+.answerInput:hover {
+  border: 2px solid #6979fa;
+}
+
+.logged-out {
+  display: none;
+}
+
+.logged-in {
+  display: none;
+}
+
+.imgCard {
+  object-fit: cover;
+  height: 225px;
+  min-height: 225px;
+}
+
+.carouimg {
+  object-fit: cover;
+}
+
