@@ -232,8 +232,7 @@ h1 {
     left: 0;
     width: 18%;
     text-align: right;
-    top: 30px;
-    padding-top: 17px;
+    padding-top: 2.2%;
 }
 
 .timeline .timeline-time .date{
@@ -348,9 +347,7 @@ h1 {
         font-size: 0.7rem;
     }
 }
-
 #profile-about {
     font-family: 'Josefin Sans', sans-serif;
-    padding-left: 18px;
     padding-top: 10px;
 }
