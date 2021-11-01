@@ -107,13 +107,13 @@ setupApp.component('setup-form',{
         <div class="row">
             <div class="col-md-6">
                 <div class="form-floating mb-4">
-                    <input class="form-control" id="inputUsername" type="text" v-model="inputUsername" placeholder="Enter your username" required/>
+                    <input class="form-control" id="inputUsername" type="text" v-model="inputUsername" placeholder="Enter your username" maxlength="30" required/>
                     <label for="inputUsername">Username</label>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="form-floating mb-4">
-                    <input class="form-control" id="inputTeleHandle" v-model="inputTeleHandle" type="text" placeholder="Enter your Telegram Handle" required/>
+                    <input class="form-control" id="inputTeleHandle" v-model="inputTeleHandle" type="text" placeholder="Enter your Telegram Handle" maxlength="20" required/>
                     <label for="inputTeleHandle">Telegram Handle</label>
                 </div>
             </div>
@@ -125,7 +125,7 @@ setupApp.component('setup-form',{
         </div>
 
         <div class="form-floating mb-4">
-            <textarea class="form-control" id="inputBio" v-model="inputBio" placeholder="Describe your interests and hobbies" required></textarea>
+            <textarea class="form-control" id="inputBio" v-model="inputBio" placeholder="Describe your interests and hobbies" maxlength="160" required></textarea>
             <label for="inputBio">Profile Biography</label>
         </div>
 

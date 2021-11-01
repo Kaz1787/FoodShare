@@ -122,7 +122,7 @@ postApp.component('listing-form',{
         </div>
         <div class="form-group mb-3">
             <input class="form-control" id="item-name"
-            v-model="inputItemName" required>
+            v-model="inputItemName" maxlength="30" required>
         </div>
         <div class="px-1 pb-2">
             <span class="text-white">Expiry Date</span>
@@ -134,7 +134,7 @@ postApp.component('listing-form',{
             <span class="text-white">Item Description</span>
         </div>
         <div class="form-group mb-3">
-            <textarea class="form-control" id="item-desc" v-model="inputItemDesc" placeholder="Pickup Location / Amount, Servings or Weight of food items / Halal, Non-Halal, Vegetarian, Vegan" required></textarea>
+            <textarea class="form-control" id="item-desc" v-model="inputItemDesc" placeholder="Pickup Location / Amount, Servings or Weight of food items / Halal, Non-Halal, Vegetarian, Vegan" maxlength="160" required></textarea>
         </div>
         <div class="mt-4 mb-0">
             <div class="d-grid">

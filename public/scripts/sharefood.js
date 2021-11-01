@@ -127,10 +127,12 @@ sharefoodApp.component('listings', {
     <div class="col d-flex">
         <div class="card shadow-sm flex-fill pink-outline foodCard">
         <img :src="imgSrc()" max-width="100%" height="225" style='object-fit: cover;'>
-            <div class="card-body text-white" style="background-color: #202731;" :id="id()">
+            <div class="card-body text-white d-flex flex-column" style="background-color: #202731;" :id="id()">
                 <h5 class="card-title">{{list.itemname}}</h5>
                 <span><small class="text-muted">by {{list.username}}</small></span>
                 <p class="card-text desc pt-3">{{list.itemdesc}}</p>
+
+                <div class="mt-auto">
                 <p class="card-text">Expiry Date: {{list.expirydate}}</p>
                 <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
@@ -142,6 +144,7 @@ sharefoodApp.component('listings', {
                         </a>
                     </div><br>
                     <small class="text-muted">Posted On: {{list.postdate}}</small>
+                </div>
                 </div>
             </div>
         </div>
@@ -243,7 +246,7 @@ function AddRecipeCard(obj){
                 <p class="card-text">${time} mins to prepare</p>
                 <p class="card-text text-muted">${cal} Calories</p>
                 <a href="${url}" class="card-link mt-auto">
-                    <button class='btn btn-outline-info fs-5'>Get the Recipe!</button>
+                    <button class='btn btn-outline-info fs-6'>Get the Recipe!</button>
                 </a>
             </div>
         </div>

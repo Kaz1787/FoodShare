@@ -101,64 +101,64 @@
 
       <div class="spacer layer1 flip"></div>
 
-      <div class="container px-5 my-5">
+      <div class="container-lg my-5">
         <div class="row gx-5 text-black">
           <h2 class="pinkFont">Trivia</h2>
           <p class="border-bottom pb-2 text-muted">Try out this fun food trivia</p>
-          <div class="py-5">
-            <div class="container px-5">
-              <div class="row gx-5 justify-content-center">
-                <div class="col-lg-10 col-xl-7">
-                  <div class="text-center">
-                    <div id="app3">
-                        <div v-if="!submitted && !giveUp">
-                            <div v-if="!launched">
-                              <h2 class="text-light mb-3">Test your food knowledge!</h2>
-                              <button @click="launched = true" class="btn btn-lg pink-bg justify-content-center text-center last-button">Launch Trivia</button>
-                            </div>
-
-                            <div v-else>
-                              <h2 class="text-light">{{question}}</h2>
-                              <div class='input-group mb-1'> <input v-model="userInput" type='text' class='form-control answerInput' placeholder='Enter your answer here!'></div><br>
-                              <button @click="submitted = true" type='button' class='btn btn-lg pink-bg text-center last-button me-2 my-2'>Submit</button>
-                              <button @click="giveUp = true" type='button' class='btn btn-lg pink-bg text-center last-button me-2 my-2'>Show Answer</button>
-                            </div>
-
-                        </div>
-    
-                        <div v-if="submitted">
-                          <div v-if="checkAns()">
-                            <h2 class="text-success">Well Done!</h2>
-                            <button @click="reset()" type='button' class='btn btn-lg pink-bg justify-content-center text-center last-button'>Try another question</button>
+          
+          <div class="container-md">
+            <div class="row gx-5 justify-content-center">
+              <div class="col-lg-10 col-xl-7">
+                <div class="text-center">
+                  <div id="app3">
+                      <div v-if="!submitted && !giveUp">
+                          <div v-if="!launched">
+                            <h2 class="text-light my-3">Test your food knowledge!</h2>
+                            <button @click="launched = true" class="btn btn-lg pink-bg justify-content-center text-center last-button my-3">Launch Trivia</button>
                           </div>
 
                           <div v-else>
                             <h2 class="text-light">{{question}}</h2>
-                              <div class="text-danger mb-3">That's incorrect, try again</div>
-                              <div class='input-group mb-1'> <input v-model="userInput" type='text' class='form-control answerInput' placeholder='Enter your answer here!'></div><br>
-                              <button @click="submitted = true" type='button' class='btn btn-lg pink-bg text-center last-button me-2 my-2'>Submit</button>
-                              <button @click="incorrectShowAns()" type='button' class='btn btn-lg pink-bg text-center last-button me-2 my-2'>Show Answer</button>
-                            </div>
+                            <div class='input-group mb-1'> <input v-model="userInput" type='text' class='form-control answerInput' placeholder='Enter your answer here!'></div><br>
+                            <button @click="submitted = true" type='button' class='btn btn-lg pink-bg text-center last-button me-2 my-2'>Submit</button>
+                            <button @click="giveUp = true" type='button' class='btn btn-lg pink-bg text-center last-button me-2 my-2'>Show Answer</button>
                           </div>
-    
-                          <div v-if="giveUp && !submitted">
-                            <h2 class="text-light">{{question}}</h2>
-                            <p class="text-danger mb-3">{{ans}}</p>
-                            <button @click="reset()" type='button' class='btn btn-lg pink-bg text-center last-button'>Try another question</button>
+
+                      </div>
+
+                      <div v-if="submitted">
+                        <div v-if="checkAns()">
+                          <h2 class="text-success">Well Done!</h2>
+                          <button @click="reset()" type='button' class='btn btn-lg pink-bg justify-content-center text-center last-button'>Try another question</button>
+                        </div>
+
+                        <div v-else>
+                          <h2 class="text-light">{{question}}</h2>
+                            <div class="text-danger mb-3">That's incorrect, try again</div>
+                            <div class='input-group mb-1'> <input v-model="userInput" type='text' class='form-control answerInput' placeholder='Enter your answer here!'></div><br>
+                            <button @click="submitted = true" type='button' class='btn btn-lg pink-bg text-center last-button me-2 my-2'>Submit</button>
+                            <button @click="incorrectShowAns()" type='button' class='btn btn-lg pink-bg text-center last-button me-2 my-2'>Show Answer</button>
                           </div>
+                        </div>
+
+                        <div v-if="giveUp && !submitted">
+                          <h2 class="text-light">{{question}}</h2>
+                          <p class="text-danger mb-3">{{ans}}</p>
+                          <button @click="reset()" type='button' class='btn btn-lg pink-bg text-center last-button'>Try another question</button>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>  
-          </div>
+            </div>
+          </div>  
+          
 
   
   
           <!-- news cards -->
-          <div class="container px-5 my-5" id="cool">
+          <div class="container-lg my-5" id="cool">
             <div class="row gx-5 text-black">
               <h2 style="color: #f7caca;">News </h2>
               <p class="border-bottom mb-5 pb-3 text-muted">Click on 'Continue Reading' to read more</p>
@@ -196,7 +196,7 @@
           </div>
 
         <!-- read more button-->
-        <div class="text-center">
+        <div class="text-center my-5">
           <a role="button" class="btn btn-lg pink-bg justify-content-center text-center last-button" href="https://www.google.com/search?q=food+starvation+and+hunger&sxsrf=AOaemvIg-wyvCiumKN8YfGd3mrV5zqfjbQ:1633603591934&source=lnms&tbm=nws&sa=X&ved=2ahUKEwjEzbPOj7jzAhVa7HMBHbeSAwYQ_AUoAnoECAEQBA&biw=1280&bih=577&dpr=1.5" target="_blank">Click here to read more news</a>
         </div>
         </div>

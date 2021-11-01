@@ -94,7 +94,7 @@
         <div class="container-lg px-5 pb-5" id="featuredCard">
             <div id="recipeArea"></div>
         </div>
-        <div class="container-fluid">
+        <div class="container-lg">
             <div class="text-center pb-5">
                 <a href="post.html">
                     <button class="btn btn-outline-warning fs-4">
@@ -102,7 +102,7 @@
                     </button>
                 </a>
             </div>  
-            <div class="row justify-content-center mx-1 px-5">
+            <div class="row justify-content-center">
                 <div class="input-group">
                     <input type="search" id="userInput" v-model="userInput" class="form-control" placeholder="Search Item"/>
                     <button type="button" class="btn btn-primary" v-on:click="onSearch">
@@ -115,8 +115,8 @@
         </div>
 
         <!-- Food Cards -->
-        <div class="container-fluid p-5">
-            <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 g-3 pt-4 px-4" id='foodCards'>
+        <div class="container-lg">
+            <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 g-3 mt-4" id='foodCards'>
                 <listings v-for="list in cards" :list="list"></listings>
             </div>
         </div>
