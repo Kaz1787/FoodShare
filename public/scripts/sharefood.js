@@ -65,10 +65,10 @@ const sharefoodApp = Vue.createApp({
                 let dateofpost = AllUserListings[item]['postdate'].toDate().toDateString()
                 dateofpost = dateofpost.split(" ")[2] + " " + dateofpost.split(" ")[1] + " " + dateofpost.split(" ")[3];
                 let foodImage = AllUserListings[item]['imglink'];
-                let card = new Card(username,telehandle,itemName,desc,expiry,dateofpost,foodImage)
+                let card = new Card(username,telehandle,itemName,desc,expiry,dateofpost,foodImage);
                 this.allListings.push(card);
-                this.cards.push(card);
             }
+            this.cards = this.allListings;
         })
     }
 });
@@ -126,15 +126,15 @@ sharefoodApp.component('listings', {
     `
     <div class="col d-flex">
         <div class="card shadow-sm flex-fill pink-outline foodCard">
-        <img :src="imgSrc" max-width="100%" height="225" style='object-fit: cover;'>
-            <div class="card-body text-white" style="background-color: #202731;" :id="id">
+        <img :src="imgSrc()" max-width="100%" height="225" style='object-fit: cover;'>
+            <div class="card-body text-white" style="background-color: #202731;" :id="id()">
                 <h5 class="card-title">{{list.itemname}}</h5>
                 <span><small class="text-muted">by {{list.username}}</small></span>
                 <p class="card-text desc pt-3">{{list.itemdesc}}</p>
                 <p class="card-text">Expiry Date: {{list.expirydate}}</p>
                 <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                        <a :href="'https://telegram.me/' + teleHandle">        
+                        <a :href="'https://telegram.me/' + teleHandle()">        
                             <img src="assets/telegram.png" style="max-height: 30px;" class='float-right me-4'>
                         </a>
                         <a v-on:click="show()" style="cursor:pointer;">
@@ -147,17 +147,18 @@ sharefoodApp.component('listings', {
         </div>
     </div>
     `,
-    data() {
-        return {
-            obj:this.list,
-            id:this.list.itemname.replace(/\s/g, ""),
-            imgSrc: this.list.imgurl,
-            teleHandle: this.list.telehandle.replace('@','')
-        }
-    },
     methods: {
         show() {
             setFoodRecipe(this.list);
+        },
+        imgSrc() {
+            return this.list.imgurl;
+        },
+        id() {
+            return this.list.itemname.replace(/\s/g, '');
+        },
+        teleHandle() {
+            return this.list.telehandle.replace('@','');
         }
     }
 })
