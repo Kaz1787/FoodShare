@@ -1,4 +1,4 @@
-async function typeSentence(sentence, delay = 100) {
+async function typeSentence(sentence, delay = 75) {
     const letters = sentence.split("");
     let i = 0;
     while(i < letters.length) {

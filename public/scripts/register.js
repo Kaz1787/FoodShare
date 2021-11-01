@@ -28,7 +28,7 @@ registerApp.component('typing-title',{
         return {
             char: '',
             sentence: "Register",
-            typeSpeed: 100,
+            typeSpeed: 75,
             charIndex: 0
         }
     },

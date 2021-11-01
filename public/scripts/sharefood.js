@@ -86,7 +86,7 @@ sharefoodApp.component('typing-title',{
         return {
             char: '',
             sentence: "Marketplace",
-            typeSpeed: 100,
+            typeSpeed: 75,
             charIndex: 0
         }
     },
@@ -139,7 +139,7 @@ sharefoodApp.component('listings', {
                         <a :href="'https://telegram.me/' + teleHandle()">        
                             <img src="assets/telegram.png" style="max-height: 30px;" class='float-right me-4'>
                         </a>
-                        <a v-on:click="show()" style="cursor:pointer;">
+                        <a v-on:click="show()" href="#featuredCard" style="cursor:pointer;">
                             <img src="assets/cook.png" style="max-height: 30px;" class='float-right me-4'>
                         </a>
                     </div><br>

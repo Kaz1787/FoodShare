@@ -144,7 +144,7 @@ Vue.createApp({
             char: '',
             typeStatus: false,
             sentence: "Find The Right Food Bank For You",
-            typeSpeed: 100,
+            typeSpeed: 75,
             charIndex: 0
         }
     },

@@ -4,7 +4,7 @@ Vue.createApp({
             char: '',
             typeStatus: false,
             sentence: "Knowledge",
-            typeSpeed: 100,
+            typeSpeed: 75,
             charIndex: 0
         }
     },

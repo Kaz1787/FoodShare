@@ -28,7 +28,7 @@ loginApp.component('typing-title',{
         return {
             char: '',
             sentence: "Login",
-            typeSpeed: 100,
+            typeSpeed: 75,
             charIndex: 0
         }
     },

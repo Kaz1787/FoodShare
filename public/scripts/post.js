@@ -72,7 +72,7 @@ postApp.component('typing-title',{
         return {
             char: '',
             sentence: "List My Item",
-            typeSpeed: 100,
+            typeSpeed: 75,
             charIndex: 0
         }
     },
