@@ -138,8 +138,8 @@ news.component('my-cards', {
         ["imageurl", "atitle", "adatepublished", "adescription", "alink"],
     template: 
     `<div class="col d-flex my-4">
-        <div class="card pink-outline flex-fill">
-            <img :src="imageurl" class="card-img-top imgCard" alt="...">
+        <div class="card pink-outline flex-fill" onerror="this.src='assets/no_img.jpg'">
+            <img :src="imageurl" class="card-img-top imgCard">
             <div class="card-body d-flex flex-column">
                 <h5 class="card-title flex-fill">{{atitle}}</h5>
                 <p class="card-text text-muted">{{adatepublished}}</p>
@@ -155,7 +155,7 @@ news.component('carou-item', {
         ["imageurl", "atitle", "adescription", "alink", "i"],
     template: 
         `<div :class="i === 0 ? 'carousel-item active' : 'carousel-item' ">
-        <img class="carouimg d-block w-100" alt="..." style="height: 600px; opacity:0.3;" :src="imageurl">
+        <img class="carouimg d-block w-100" style="height: 600px; opacity:0.3;" :src="imageurl" onerror="this.src='assets/no_img.jpg'">
         <div class="container">
           <div class="carousel-caption text-start">
             <h1>{{atitle}}</h1>
