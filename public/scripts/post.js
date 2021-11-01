@@ -71,7 +71,7 @@ postApp.component('typing-title',{
     data() {
         return {
             char: '',
-            sentence: "List My Trade",
+            sentence: "List My Item",
             typeSpeed: 100,
             charIndex: 0
         }
@@ -138,7 +138,7 @@ postApp.component('listing-form',{
         </div>
         <div class="mt-4 mb-0">
             <div class="d-grid">
-                <button type="submit" class="btn btn-primary" id="upload">List My Trade</button> 
+                <button type="submit" class="btn btn-primary" id="upload">List My Item</button> 
             </div>
         </div>
     </form>   

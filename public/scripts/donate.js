@@ -61,11 +61,11 @@ app.component('food-bank-card', {
     template: `
     <div class="col-lg-4 col-md-6 my-2 d-flex">
         <div class="card pink-outline flex-fill" @click='clickBank(slug)' @mouseover='hoverCard' @mouseout='outCard' :style='{border:border}'>
-            <div class="card-body">
+            <div class="card-body d-flex flex-column">
                 <h3 class="card-title">{{ name }}</h3>
                 <h6 class="card-subtitle mb-2 text-muted fst-italic">{{ distance }}m away</h6>
                 <p class="card-text">{{ address }}</p>
-                <a href="#map" class="text-muted">View on Map</a>
+                <a href="#map" class="text-muted mt-auto">View on Map</a>
             </div>
         </div>
     </div>
@@ -101,11 +101,11 @@ app.component('food-needs-card', {
     template: `
         <div class="col-lg-4 col-md-6 mb-2 d-flex">
             <div class="card pink-outline flex-fill" @click='clickNeeds(slug)' @mouseover='hoverCard' @mouseout='outCard' :style='{border:border}'>
-                <div class="card-body">
+                <div class="card-body d-flex flex-column">
                     <h3 class="card-title">{{ name }}</h3>
                     <h6 class="card-subtitle mb-2 text-muted fst-italic">{{ newdate }}</h6>
                     <p class="card-text">{{ needs }}</p>
-                    <a href="#map" class="text-muted">View on Map</a>
+                    <a href="#map" class="text-muted mt-auto">View on Map</a>
                 </div>
             </div>
         </div>
