@@ -47,9 +47,9 @@ See the GIF below to see how to list a food item on the marketplace:
 
 ## Solution
 
-- Front-end framework - Vue; Bootstrap
+- Front-end framework - VueJS ; Bootstrap
 
-- Database - Cloudinary; Firestore
+- Database - Cloudinary ; Firebase Cloud Firestore
 
 - Authentication - Firebase; Firebase Authentication
 
