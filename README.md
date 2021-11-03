@@ -4,7 +4,7 @@ Foodshare is a web application that aims to tackle food wastage and scarcity in 
 
 ## Demo
 
-Here is a working live demo : https://wad2-foodshare.web.app/donate.html
+Here is a working live demo : https://wad2-foodshare.web.app/
 
 
 ## Features
