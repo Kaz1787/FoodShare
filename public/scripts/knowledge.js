@@ -158,8 +158,8 @@ news.component('carou-item', {
         <img class="carouimg d-block w-100" style="height: 600px; opacity:0.3;" :src="imageurl" onerror="this.src='assets/no_img.jpg'">
         <div class="container">
           <div class="carousel-caption text-start">
-            <h1>{{atitle}}...</h1>
-            <p>{{adescription}}</p>
+            <h1>{{atitle}}</h1>
+            <p>{{adescription}}...</p>
             <p><a class="linkCarou btn btn-lg text-dark" :href="alink">Read More</a></p>
           </div>
         </div>
