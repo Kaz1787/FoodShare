@@ -51,7 +51,7 @@ Vue.createApp({
     },
     created() {
         fetch("https://api.api-ninjas.com/v1/trivia?limit=30&category=" + this.category, {
-            headers: { 'X-Api-Key': 'qpk980j1aXFfxsktlznfXw==CIjV1mWr18NxOj8a'},
+            headers: { 'X-Api-Key': 'bcb9a2e96fmsh4632c43b994648dp14e672jsn56fac8b7bb38'},
             contentType: 'application/json',
         })
         .then(response => {
@@ -108,22 +108,22 @@ var news = Vue.createApp({
         }
     },
     created() {
-        fetch("https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/search/NewsSearchAPI?q=hunger+famine&pageNumber=1&pageSize=12&autoCorrect=true&safeSearch=true&withThumbnails=true&fromPublishedDate=null&toPublishedDate=null", {
+        fetch("https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/search/NewsSearchAPI?q=hunger&pageNumber=1&pageSize=10&autoCorrect=true&fromPublishedDate=null&toPublishedDate=null", {
             "method": "GET",
             "headers": {
-              "x-rapidapi-host": "contextualwebsearch-websearch-v1.p.rapidapi.com",
-              "x-rapidapi-key": "bcb9a2e96fmsh4632c43b994648dp14e672jsn56fac8b7bb38"
+                "x-rapidapi-host": "contextualwebsearch-websearch-v1.p.rapidapi.com",
+                "x-rapidapi-key": "qpk980j1aXFfxsktlznfXw==CIjV1mWr18NxOj8a"
             }
         })
         .then(response => {
             return response.json();
         })
         .then(data => {
-            for (anews of data.value) {
-                let desc = anews.description.slice(0,100);
-                anews.desc = desc;
-                let dateP = anews.datePublished.slice(0,10);
-                anews.dateP = dateP;
+            for (news of data.value) {
+                let desc = news.description.slice(0,100);
+                news.desc = desc;
+                let dateP = news.datePublished.slice(0,10);
+                news.dateP = dateP;
             }
             this.newsData = data.value.slice(3);
             this.carouData = data.value.slice(0, 3);
